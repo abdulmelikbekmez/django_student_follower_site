@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<div style = "margin-top : 80px; margin-bottom : 100px;" class = "container">
+    <div class="row">
+      <!-- Post Content Column -->
+        <div class="col-lg-8">
+        <!-- Title -->
+            <h2 class="mt-4"> {{homework.title}} </h2>
+        <!-- Author -->
+            <p class="lead">
+          by {{homework.student}}
+            </p>
+            <hr>
+        <!-- Date/Time -->
+            <p> {{homework.created_date}} tarihinde oluşturuldu.   (Ödevin başlangıç zamanı ile karıştırmayınız!!) </p>
+            <hr>
+        <!-- Preview Image -->
+        <!--<img class="img-fluid rounded" src="http://placehold.it/900x300" alt="">-->
+            <hr>
+        <!-- Post Content -->
+            <p class="lead" >
+                {{homework.content}}
+            </p>
+            <hr>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock body %}

@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+{% load crispy_forms_tags %}
+
+{% block body %}
+<div style = "margin-top : 50px; margin-bottom : 150px;" class="row">
+  <div class="col-md-6 offset-md-3">
+    <h1>Duyuru Ekle </h1><hr><br>
+    <form method = "post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form.media}}
+        {{form|crispy}}
+        <br>
+        <button type = "submit" class = "btn btn-danger" >Duyuru Ekle</button>
+    </form>
+  </div>
+</div>
+
+    
+
+{% endblock body %}

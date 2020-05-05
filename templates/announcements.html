@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+    {% for announcement in announcements %}
+
+  <div style = "margin-top : 50px; margin-bottom : 150px;" class="container">
+
+    <div class="row">
+
+      <div class="col-lg-8">
+
+        <h1 class="mt-4">{{announcement.title}}</h1>
+
+        <p class="lead">
+          by
+          <a href="#">Admin</a>
+        </p>
+
+        <hr>
+ 
+        <p>{{announcement.created_date}} Tarihinde Oluşturuldu.</p>
+            
+        {% if announcement.announcement_file %}
+        <hr>
+        <img class="img-fluid rounded" src="{{announcement.announcement_file.url}}" alt="">
+
+        <hr>
+                
+        {% endif %}
+        
+        <p class="lead"> {{announcement.content|safe}} </p>
+
+        {% if announcement.youtube %}
+        <div class="embed-responsive embed-responsive-16by9">
+        <iframe class="embed-responsive-item" width="560" height="315" src="{{announcement.youtube}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        
+        </div>
+
+
+        {% endif %}
+
+        
+        <hr>
+        
+      
+      </div>
+
+      
+
+    </div>
+    
+
+  </div>
+ 
+
+    {% endfor %}
+
+
+
+
+
+{% endblock body %}

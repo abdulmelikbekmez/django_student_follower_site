@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<h3>Kontrol Paneli</h3> <hr>
+<p>Hoşgeldiniz <small> {{request.user.username}} </small>, <hr>
+
+</p>
+
+  {% if homeworks %}
+  <div style = "margin-top : 50px; margin-bottom : 150px;" class = "container">
+  <div class="table-responsive">
+  <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Öğrenci İsmi</th>
+      <th scope="col">Başlık</th>
+      <th scope="col">Ders</th>
+      <th scope="col">Kitap</th>
+      <th scope="col">Konu</th>
+      <th scope="col">Başlangıç Vakti</th>
+      <th scope="col">Bitiş Vakti</th>
+      <th scope="col">Çözülen Soru Sayısı</th>
+      <th scope="col">Doğru Sayısı</th>
+      <th scope="col">Yanlış Sayısı</th>
+      <th scope="col">Ödevini Güncelle</th>
+    </tr>
+  </thead>
+    <tbody>
+    {% for homework in homeworks %}
+    <tr>
+      <th scope="row"> {{homework.id}} </th>
+      <td> {{homework.student}} </td>
+      <td> {{homework.title}} </td>
+      <td> {{homework.lesson}} </td>
+      <td> {{homework.book}} </td>
+      <td> {{homework.topic}} </td>
+      <td> {{homework.initial_date}} </td>
+      <td> {{homework.final_date}} </td>
+      <td> {{homework.total_solved}} </td>
+      <td> {{homework.true_solved}} </td>
+      <td> {{homework.false_solved}} </td>
+      <td> <a class = "btn btn-danger" href="/homeworks/userupdate/{{homework.id}}">Güncelle</a> </td>
+    </tr>
+    {% endfor %}
+    
+  </tbody>
+  </table>
+  </div>
+  </div>
+
+  {% else %}
+  <div class = "alert alert-danger" >Verilmiş Ödeviniz Bulunmamaktadır...</div>
+  {% endif %}
+  
+
+
+
+{% endblock body %}
